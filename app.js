@@ -15,10 +15,6 @@ const client = new Client({intents: [
 
 module.exports = client;
 
-//NOSSA EU VO CHORA, O BGL Q EU MANDAVA AS MSG E N APARECIA NO EVENT.MESSAGECREATE, REALMENTE, EU N TINHA PERMISSAO, TINHA Q MEXE NO DEVELOPER DS E NO GATEWAYINTENTBITS, 1 DIA INTEIRO P DESCOBRI ISSO
-
-//LOAD EVENTS
-
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
@@ -32,8 +28,6 @@ eventFiles.map(file => {
         client.on(event.name, (...args) => event.execute(...args));
     }
 });
-
-//LOAD COMMANDS
 
 client.commands = new Collection();
 
@@ -50,9 +44,6 @@ commandFiles.map(file => {
     else {
         console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
     }
-})
-
-//DEPOIS EU TENHO Q PASSA ESSAS FUNCOES, DESCE Q EU CONSIGA DA UM JEITO DE PASSAR O VOICESTATEDATA
-
+});
 
 client.login(process.env.TOKEN);
