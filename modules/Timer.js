@@ -1,5 +1,5 @@
 function Timer() {
-    const bk_time = new Date(2023, 4-1, 9, 3, 6, 0);
+    const bk_time = new Date(2023, 4-1, 23, 3, 29, 0);
 
     const now = new Date();
     const timeDif = now.getTime() - bk_time.getTime();

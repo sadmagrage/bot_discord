@@ -4,7 +4,7 @@ const { joinVoiceChannel } = require('@discordjs/voice');
 module.exports = {
     data: new SlashCommandBuilder()
             .setName('come')
-            .setDescription('call bot to new voice channel'),
+            .setDescription('chama o bot para o canal de voz'),
         async execute(interaction) {
             await interaction.deferReply();
             let channel_id;
@@ -35,6 +35,6 @@ module.exports = {
                 guildId: interaction.guildId,
                 adapterCreator: interaction.guild.voiceAdapterCreator,
             });
-            await interaction.editReply('to colante');
+            await interaction.editReply('to entrando');
         }
 }

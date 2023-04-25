@@ -5,7 +5,7 @@ const { songs } = require('./p');
 module.exports = {
     data: new SlashCommandBuilder()
             .setName('queue')
-            .setDescription('return queue songs'),
+            .setDescription('Retorna a fila de músicas'),
         async execute(interaction) {
             await interaction.deferReply();
 

@@ -7,16 +7,16 @@ let arrCola = {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('cola')
-        .setDescription('cola <musica>\nretorna 5 opcoes de busca')
+        .setName('join')
+        .setDescription('join <música>\nretorna 5 opções de busca')
         .addStringOption(option => 
-            option.setName('musica')
-                .setDescription('texto para procurar musica')),
+            option.setName('música')
+                .setDescription('texto para procurar música')),
     async execute(interaction) {
         (async () => {
             await interaction.deferReply();
             const r = await yts(interaction.options.getString('musica'));
-            arrCola.listCola = r.videos.slice(0, 5);//DEU BOM E NOIS
+            arrCola.listCola = r.videos.slice(0, 5);
             let str = "";
             i = 1;
             arrCola.listCola.map(item => {
@@ -26,4 +26,4 @@ module.exports = {
             await interaction.editReply(str);
         })();
     }
-, arrCola};//VO CRIA O METODO PAUSE E UNPAUSE
+, arrCola};

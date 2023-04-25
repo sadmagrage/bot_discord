@@ -1,6 +1,6 @@
 const { createAudioPlayer, createAudioResource, joinVoiceChannel } = require('@discordjs/voice');
 const { SlashCommandBuilder } = require('discord.js');
-const { arrCola } = require('./cola');
+const { arrCola } = require('./join');
 const ytdl = require('ytdl-core');
 
 let songs = {
@@ -10,10 +10,10 @@ let songs = {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('p')
-        .setDescription('p <num>\nseleciona 1 das 5 opcoes')
+        .setDescription('p <num>\nseleciona 1 das 5 opções')
         .addIntegerOption(option => 
             option.setName('num')
-                .setDescription('tocar musica')),
+                .setDescription('tocar música')),
     async execute(interaction) {
         try {
             await interaction.deferReply();
@@ -41,7 +41,7 @@ module.exports = {
                 });
 
                 const selector = interaction.options.getInteger('num');
-                if (songs.listSongs.length === 0) {// eu confirmei meu id, mas na vdd eu preciso do channelid
+                if (songs.listSongs.length === 0) {
                     songs.listSongs.push({
                         url: arrCola.listCola[selector - 1].url,
                         title: arrCola.listCola[selector - 1].title
@@ -60,7 +60,6 @@ module.exports = {
                     connection.subscribe(player);
 
                     const x = setInterval(() => {
-                        //vo passa um log aq p ve os stats dele quando eu quico ele do voice
                         if (player.state.status === 'idle') {
                             songs.listSongs.shift();
                             if (songs.listSongs.length != 0) {
@@ -70,7 +69,7 @@ module.exports = {
                                 });
                             }
                             else {
-                                interaction.followUp('esto saindo');
+                                interaction.followUp('to saindo');
                                 connection.disconnect();
                                 clearInterval(x);
                             }

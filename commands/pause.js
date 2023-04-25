@@ -4,7 +4,7 @@ const { getVoiceConnection } = require('@discordjs/voice');
 module.exports = {
     data: new SlashCommandBuilder()
             .setName('pause')
-            .setDescription('pause and unpause the player'),
+            .setDescription('Pausa ou despausa o player'),
         async execute(interaction) {
             await interaction.deferReply();
             const connection = getVoiceConnection(interaction.guildId);

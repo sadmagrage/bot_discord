@@ -6,7 +6,7 @@ const client = require('../app')
 module.exports = {
     data: new SlashCommandBuilder()
             .setName('sai')
-            .setDescription('kick the bot'),
+            .setDescription('O bot sai do canal de voz'),
         async execute(interaction) {
             await interaction.deferReply();
             let botIsInChannel = false;
@@ -32,7 +32,7 @@ module.exports = {
             });
 
             if (!botIsInChannel) {
-                interaction.editReply('nem to em canal burro');
+                interaction.editReply('não estou em canal');
                 return;
             }
             interaction.editReply("vo lembra");

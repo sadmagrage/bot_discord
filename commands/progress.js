@@ -4,7 +4,7 @@ const Timer = require('../modules/Timer');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('progress')
-        .setDescription('progresso ate entao'),
+        .setDescription('Timer misterioso, o quê será que é ?'),
     async execute(interaction) {
         await interaction.reply(Timer());
     }
